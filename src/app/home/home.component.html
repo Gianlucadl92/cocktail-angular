@@ -1,0 +1,25 @@
+<div class="container text-center mt-4">
+  <h2>Search Cocktails</h2>
+  <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Enter cocktail name..."
+    (input)="searchCocktails($event)"
+  />
+
+  <div *ngIf="cocktails.length > 0">
+    <h3>Results:</h3>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let drink of cocktails">
+        <strong>{{ drink.strDrink }}</strong>
+        <img
+          [src]="drink.strDrinkThumb"
+          alt="{{ drink.strDrink }}"
+          class="img-thumbnail"
+          width="100"
+        />
+      </li>
+    </ul>
+  </div>
+  <p *ngIf="cocktails.length === 0 && searchQuery !== ''">No results found.</p>
+</div>
