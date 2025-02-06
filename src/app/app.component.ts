@@ -13,7 +13,8 @@ export class AppComponent {
   // router
   constructor(private router: Router) {}
 
-  goToPage(page: string) {
+  goToPage(page: string, event: Event) {
+    event.preventDefault();
     this.router.navigate([page]);
   }
 
