@@ -10,8 +10,8 @@
     />
   </div>
 
-  <div *ngIf="cocktails.length > 0" class="row">
-    <h3 class="mb-4 mt-4">Results: {{ cocktails.length }}</h3>
+  <div *ngIf="cocktails.length> 0" class="row">
+    <h3 class="mb-4 mt-4">Results: <span class="badge text-bg-secondary">{{ cocktails.length }}</span></h3>
     <div
       class="col-md-4 mb-4 d-flex justify-content-center"
       *ngFor="let drink of cocktails"

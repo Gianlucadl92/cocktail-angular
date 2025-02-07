@@ -6,7 +6,7 @@ import { CocktailService } from '../service/cocktail.service';
   selector: 'app-home',
   imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   cocktails: any[] = [];
@@ -30,9 +30,11 @@ export class HomeComponent implements OnInit {
       this.ngOnInit();
     } else {
       //Altrimenti, esegui la ricerca
-      this.cocktailService.searchCocktails(this.searchQuery).subscribe((data: any) => {
-        this.cocktails = data.drinks || [];
-      });
+      this.cocktailService
+        .searchCocktails(this.searchQuery)
+        .subscribe((data: any) => {
+          this.cocktails = data.drinks || [];
+        });
     }
   }
 }
