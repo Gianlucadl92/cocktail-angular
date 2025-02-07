@@ -1,25 +1,46 @@
 <div class="container text-center mt-4">
   <h2>Search Cocktails</h2>
-  <input
-    type="text"
-    class="form-control mb-3"
-    placeholder="Enter cocktail name..."
-    (input)="searchCocktails($event)"
-  />
+  <div class="d-flex justify-content-center">
+    <input
+      type="text"
+      class="form-control mt-4"
+      style="max-width: 800px"
+      placeholder="Enter cocktail name..."
+      (input)="searchCocktails($event)"
+    />
+  </div>
 
-  <div *ngIf="cocktails.length > 0">
-    <h3>Results:</h3>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let drink of cocktails">
-        <strong>{{ drink.strDrink }}</strong>
+  <div *ngIf="cocktails.length > 0" class="row">
+    <h3 class="mb-4 mt-4">Results: {{ cocktails.length }}</h3>
+    <div
+      class="col-md-4 mb-4 d-flex justify-content-center"
+      *ngFor="let drink of cocktails"
+    >
+      <div class="card shadow-sm my-4" style="max-width: 350px; width: 100%">
         <img
           [src]="drink.strDrinkThumb"
           alt="{{ drink.strDrink }}"
-          class="img-thumbnail"
-          width="100"
+          class="card-img-top"
+          style="height: 200px; object-fit: cover"
         />
-      </li>
-    </ul>
+        <div class="card-body">
+          <h5 class="card-title">{{ drink.strDrink }}</h5>
+          <p class="card-text">Category: {{ drink.strCategory }}</p>
+          <p class="card-text">Glass: {{ drink.strGlass }}</p>
+          <a
+            [href]="'https://www.thecocktaildb.com/drink/' + drink.idDrink"
+            target="_blank"
+            class="btn btn-primary"
+            >View Details</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
-  <p *ngIf="cocktails.length === 0 && searchQuery !== ''">No results found.</p>
+</div>
+<!-- Se la ricerca non esiste "No Results" -->
+<div class="container text-center mt-4">
+  <div *ngIf="cocktails.length === 0" class="row">
+    <h3 class="mb-3">No Results</h3>
+  </div>
 </div>
