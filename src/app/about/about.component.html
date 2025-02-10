@@ -1,144 +1,60 @@
 <div class="container mt-5">
-  <!-- Titolo -->
-  <h2 class="text-center mb-5">Scopri il Mondo dei Cocktail 🍹</h2>
-
-  <!-- Introduzione -->
-  <div class="text-center mb-5">
-    <p class="lead">
-      Benvenuto su <strong>Cocktail DB</strong>, il luogo perfetto per
-      esplorare l'arte della mixology! Qui troverai ricette classiche e
-      innovative, consigli su ingredienti e tecniche di preparazione, oltre a
-      curiosità sulla storia dei cocktail.
-    </p>
-  </div>
-
-  <!-- Sezione Storia dei Cocktail -->
-  <div class="row">
-    <div class="col-md-6">
-      <img
-        src="https://source.unsplash.com/600x400/?cocktail"
-        class="img-fluid rounded shadow"
-        alt="Cocktail"
-      />
+    <!-- Titolo -->
+    <h1 class="text-center mb-4">{{ aboutText.title }}</h1>
+    <p class="text-center lead">{{ aboutText.description }}</p>
+  
+    <!-- Storia dei Cocktail -->
+    <div class="row my-5">
+      <div class="col-md-6">
+        <img [src]="history.image" class="img-fluid rounded shadow" alt="Cocktail">
+      </div>
+      <div class="col-md-6">
+        <h2>{{ history.title }}</h2>
+        <p>{{ history.description }}</p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3>🍸 La Storia dei Cocktail</h3>
-      <p>
-        L’arte di miscelare bevande ha origini antiche, ma il termine
-        <em>cocktail</em> appare per la prima volta nel 1806 negli Stati Uniti.
-        Da allora, bartender di tutto il mondo hanno sperimentato nuove
-        combinazioni, creando bevande iconiche come il <strong>Martini</strong>,
-        il <strong>Mojito</strong> e il <strong>Negroni</strong>.
-      </p>
+  
+    <!-- Missione -->
+    <div class="my-5 p-4 bg-light rounded shadow">
+      <h2>{{ mission.title }}</h2>
+      <p>{{ mission.description }}</p>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let point of mission.points">{{ point }}</li>
+      </ul>
     </div>
-  </div>
-
-  <!-- Missione -->
-  <div class="my-5 p-4 bg-light rounded shadow">
-    <h3>🎯 La Nostra Missione</h3>
-    <p>
-      Abbiamo creato <strong>[Nome del Sito]</strong> con un obiettivo chiaro:
-      rendere il mondo dei cocktail accessibile a tutti! Che tu sia un
-      principiante o un esperto bartender, qui troverai:
-    </p>
-    <ul class="list-group">
-      <li class="list-group-item">
-        ✅ Ricette dettagliate e facili da seguire
-      </li>
-      <li class="list-group-item">
-        ✅ Suggerimenti sugli ingredienti e alternative creative
-      </li>
-      <li class="list-group-item">
-        ✅ Tecniche di miscelazione per drink perfetti
-      </li>
-      <li class="list-group-item">
-        ✅ Una community appassionata di cocktail lovers
-      </li>
-    </ul>
-  </div>
-
-  <!-- Cocktail Popolari -->
-  <div class="text-center my-5">
-    <h3>🍹 I Cocktail più Amati</h3>
-    <div class="row">
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card shadow">
-          <img
-            src="https://source.unsplash.com/200x200/?martini"
-            class="card-img-top"
-            alt="Martini"
-          />
-          <div class="card-body">
-            <h5 class="card-title">🍸 Martini</h5>
-            <p class="card-text">Elegante e intramontabile.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card shadow">
-          <img
-            src="https://source.unsplash.com/200x200/?mojito"
-            class="card-img-top"
-            alt="Mojito"
-          />
-          <div class="card-body">
-            <h5 class="card-title">🍹 Mojito</h5>
-            <p class="card-text">Fresco e perfetto per l’estate.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card shadow">
-          <img
-            src="https://source.unsplash.com/200x200/?negroni"
-            class="card-img-top"
-            alt="Negroni"
-          />
-          <div class="card-body">
-            <h5 class="card-title">🍊 Negroni</h5>
-            <p class="card-text">Intenso e sofisticato.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card shadow">
-          <img
-            src="https://source.unsplash.com/200x200/?margarita"
-            class="card-img-top"
-            alt="Margarita"
-          />
-          <div class="card-body">
-            <h5 class="card-title">🥭 Margarita</h5>
-            <p class="card-text">Un mix esotico di tequila e lime.</p>
+  
+    <!-- Cocktail Popolari -->
+    <div class="text-center my-5">
+      <h2>🍹 I Cocktail più Amati</h2>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-3" *ngFor="let cocktail of cocktails">
+          <div class="card shadow">
+            <img [src]="cocktail.image" class="card-img-top" alt="{{ cocktail.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ cocktail.name }}</h5>
+              <p class="card-text">{{ cocktail.description }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Chi Siamo -->
-  <div class="bg-dark text-white p-4 rounded shadow">
-    <h2>🏆 Chi Siamo</h2>
-    <p>
-      <strong>[Il tuo nome o il nome del team]</strong>, appassionato di
-      mixology e sperimentazione, ha creato questo sito per condividere la
-      passione per i cocktail. Crediamo che un buon drink non sia solo una
-      bevanda, ma un’esperienza da gustare e condividere! 🍹
-    </p>
-  </div>
-
-  <!-- Contatti -->
-  <div class="text-center my-5">
-    <h2>📩 Contattaci</h2>
-    <p>Vuoi suggerire una ricetta o collaborare con noi? Scrivici!</p>
-    <a href="mailto:tuo@email.com" class="btn btn-warning">📧 Invia un'Email</a>
-    <div class="mt-3">
-      <a href="https://instagram.com" class="btn btn-outline-danger mx-2"
-        >📷 Instagram</a
-      >
-      <a href="https://facebook.com" class="btn btn-outline-primary mx-2"
-        >📘 Facebook</a
-      >
+  
+    <!-- Chi Siamo -->
+    <div [class]="team.background">
+      <h2>{{ team.title }}</h2>
+      <p>{{ team.description }}</p>
+    </div>
+  
+    <!-- Contatti -->
+    <div class="text-center my-5">
+      <h2>📩 Contattaci</h2>
+      <p>Vuoi suggerire una ricetta o collaborare con noi? Scrivici!</p>
+      <a [href]="'mailto:' + contacts.email" class="btn btn-warning">📧 Invia un'Email</a>
+      <div class="mt-3">
+        <a *ngFor="let social of contacts.social" [href]="social.url" class="btn btn-outline-primary mx-2">
+          {{ social.icon }} {{ social.name }}
+        </a>
+      </div>
     </div>
   </div>
-</div>
+  
