@@ -45,7 +45,13 @@
           >
         </li>
       </ul>
-      <button type="button" class="btn btn-outline-danger">Login</button>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        (click)="goToPage('login', $event)"
+      >
+        Login
+      </button>
     </div>
   </div>
 </nav>
