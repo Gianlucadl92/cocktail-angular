@@ -1,71 +1,124 @@
 <div class="container mt-5 p-5 border shadow">
-    <h2 class="text-center mb-4">Contact us 🍸</h2>
-    
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <!-- Nome -->
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input 
-          id="name" 
-          type="text" 
-          class="form-control" 
-          formControlName="name" 
-          [ngClass]="{'is-invalid': formControls['name'].touched && formControls['name'].invalid}"
-        />
-        <div *ngIf="formControls['name'].touched && formControls['name'].invalid" class="invalid-feedback">
-          <div *ngIf="formControls['name'].errors?.['required']">Il nome è obbligatorio.</div>
-          <div *ngIf="formControls['name'].errors?.['minlength']">Il nome deve essere lungo almeno 3 caratteri.</div>
-        </div>
-      </div>
-      <!-- cognome -->
-      <div class="mb-3">
-        <label for="surname" class="form-label">Surname</label>
-        <input 
-          id="surname" 
-          type="text" 
-          class="form-control" 
-          formControlName="surname" 
-          [ngClass]="{'is-invalid': formControls['surname'].touched && formControls['surname'].invalid}"
-        />
-        <div *ngIf="formControls['surname'].touched && formControls['surname'].invalid" class="invalid-feedback">
-          <div *ngIf="formControls['surname'].errors?.['required']">Il cognome è obbligatorio.</div>
-          <div *ngIf="formControls['surname'].errors?.['minlength']">Il cognome deve essere lungo almeno 3 caratteri.</div>
-        </div>
-      </div>
-  
-      <!-- Email -->
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input 
-          id="email" 
-          type="email" 
-          class="form-control" 
-          formControlName="email" 
-          [ngClass]="{'is-invalid': formControls['email'].touched && formControls['email'].invalid}"
-        />
-        <div *ngIf="formControls['email'].touched && formControls['email'].invalid" class="invalid-feedback">
-          <div *ngIf="formControls['email'].errors?.['required']">L'email è obbligatoria.</div>
-          <div *ngIf="formControls['email'].errors?.['email']">L'email non è valida.</div>
-        </div>
-      </div>
-  
-      <!-- Messaggio -->
-      <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea 
-          id="message" 
-          class="form-control" 
-          formControlName="message" 
-          [ngClass]="{'is-invalid': formControls['message'].touched && formControls['message'].invalid}"
-        ></textarea>
-        <div *ngIf="formControls['message'].touched && formControls['message'].invalid" class="invalid-feedback">
-          <div *ngIf="formControls['message'].errors?.['required']">The message is mandatory.</div>
-          <div *ngIf="formControls['message'].errors?.['minlength']">The message must be at least 10 characters long.</div>
-        </div>
-      </div>
-  
-      <!-- Bottone di invio -->
-      <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Invia</button>
-    </form>
+  <h2 class="text-center mb-4">Contact us 🍸</h2>
+  <!-- Messaggio di successo -->
+  <div *ngIf="formSubmitted" class="alert alert-success">
+    Form inviato con successo!
   </div>
-  
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <!-- Nome -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        id="name"
+        type="text"
+        class="form-control"
+        formControlName="name"
+        [ngClass]="{
+          'is-invalid':
+            formControls['name'].touched && formControls['name'].invalid
+        }"
+      />
+      <div
+        *ngIf="formControls['name'].touched && formControls['name'].invalid"
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['name'].errors?.['required']">
+          Il nome è obbligatorio.
+        </div>
+        <div *ngIf="formControls['name'].errors?.['minlength']">
+          Il nome deve essere lungo almeno 3 caratteri.
+        </div>
+      </div>
+    </div>
+    <!-- cognome -->
+    <div class="mb-3">
+      <label for="surname" class="form-label">Surname</label>
+      <input
+        id="surname"
+        type="text"
+        class="form-control"
+        formControlName="surname"
+        [ngClass]="{
+          'is-invalid':
+            formControls['surname'].touched && formControls['surname'].invalid
+        }"
+      />
+      <div
+        *ngIf="
+          formControls['surname'].touched && formControls['surname'].invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['surname'].errors?.['required']">
+          Il cognome è obbligatorio.
+        </div>
+        <div *ngIf="formControls['surname'].errors?.['minlength']">
+          Il cognome deve essere lungo almeno 3 caratteri.
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            formControls['email'].touched && formControls['email'].invalid
+        }"
+      />
+      <div
+        *ngIf="formControls['email'].touched && formControls['email'].invalid"
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['email'].errors?.['required']">
+          L'email è obbligatoria.
+        </div>
+        <div *ngIf="formControls['email'].errors?.['email']">
+          L'email non è valida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Messaggio -->
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea
+        id="message"
+        class="form-control"
+        formControlName="message"
+        [ngClass]="{
+          'is-invalid':
+            formControls['message'].touched && formControls['message'].invalid
+        }"
+      ></textarea>
+      <div
+        *ngIf="
+          formControls['message'].touched && formControls['message'].invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="formControls['message'].errors?.['required']">
+          The message is mandatory.
+        </div>
+        <div *ngIf="formControls['message'].errors?.['minlength']">
+          The message must be at least 10 characters long.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottone di invio -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="contactForm.invalid"
+    >
+      Invia
+    </button>
+  </form>
+</div>

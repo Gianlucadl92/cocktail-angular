@@ -11,7 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
-
+  formSubmitted: false | any;
+  
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -30,8 +31,16 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     if (this.contactForm.valid) {
+      this.formSubmitted = true;
+      this.contactForm.reset(); // Svuota tutti i campi
       console.log('Form submitted:', this.contactForm.value);
+
+      setTimeout(() => {
+        this.formSubmitted = false;
+      }, 3000);
     } else {
+      this.formSubmitted = false;
+      this.contactForm.markAllAsTouched(); // Segna i campi non validi
       console.log('Form is invalid');
     }
   }
