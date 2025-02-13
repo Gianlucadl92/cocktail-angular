@@ -24,10 +24,10 @@
         class="invalid-feedback"
       >
         <div *ngIf="formControls['name'].errors?.['required']">
-          Il nome è obbligatorio.
+          The name is mandatory.
         </div>
         <div *ngIf="formControls['name'].errors?.['minlength']">
-          Il nome deve essere lungo almeno 3 caratteri.
+          The name must be at least 3 characters long.
         </div>
       </div>
     </div>
@@ -51,10 +51,10 @@
         class="invalid-feedback"
       >
         <div *ngIf="formControls['surname'].errors?.['required']">
-          Il cognome è obbligatorio.
+          The surname is mandatory.
         </div>
         <div *ngIf="formControls['surname'].errors?.['minlength']">
-          Il cognome deve essere lungo almeno 3 caratteri.
+          The surname must be at least 3 characters long.
         </div>
       </div>
     </div>

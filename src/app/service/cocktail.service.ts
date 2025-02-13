@@ -120,4 +120,18 @@ export class CocktailService {
   getContacts() {
     return this.contacts;
   }
+
+  // clienti
+  private eventi = [
+    { titolo: 'Masterclass Gin Tonic', data: '15 Marzo 2025', descrizione: 'Scopri i segreti per creare il Gin Tonic perfetto con esperti mixologist.' },
+    { titolo: 'Cocktail Esotici', data: '28 Marzo 2025', descrizione: 'Un viaggio tra i migliori cocktail tropicali e come prepararli.' },
+    { titolo: 'Whisky Tasting Night', data: '10 Aprile 2025', descrizione: 'Degustazione di whisky premium guidata da un esperto.' },
+    { titolo: 'Mojito & Daiquiri Workshop', data: '22 Aprile 2025', descrizione: 'Impara a preparare i classici cocktail cubani con tecniche professionali.' },
+    { titolo: 'Spritz & Aperitivo Italiano', data: '5 Maggio 2025', descrizione: 'Scopri i segreti dell’aperitivo perfetto con un focus sugli Spritz.' },
+    { titolo: 'Bartender Pro Training', data: '20 Maggio 2025', descrizione: 'Corso avanzato per migliorare le tecniche di bartending e flair.' }
+  ];
+
+  getEventi() {
+    return this.eventi;
+  }
 }
