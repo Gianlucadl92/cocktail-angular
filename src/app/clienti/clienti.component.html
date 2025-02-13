@@ -1,3 +1,12 @@
+<!-- navbar clienti -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">The Cocktail DB</a>
+    <button type="button" class="btn btn-outline-danger" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+  </div>
+</nav>
+
+<!-- eventi -->
 <div class="container mt-4">
   <h2 class="text-light">Eventi & Masterclass</h2>
   <div class="row">

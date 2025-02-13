@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject  } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -133,5 +133,13 @@ export class CocktailService {
 
   getEventi() {
     return this.eventi;
+  }
+
+  // logout clienti
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+  logout() {
+    this.isLoggedInSubject.next(false);
   }
 }
